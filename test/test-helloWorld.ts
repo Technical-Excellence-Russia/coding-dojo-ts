@@ -1,15 +1,20 @@
 import {HelloWorld} from "../src/HelloWorld"
 
 describe("HelloWorld Should", () => {
+    let helloWorld: HelloWorld;
 
-    const helloWorld = new HelloWorld()
+    beforeEach(() => {
+        helloWorld = new HelloWorld();
+    });
 
     test("return Hello World", () => {
-        const expected = "Hello World"
+        const expected = "Hello World";
+        const actual = helloWorld.helloWorld();
+        expect(actual).toBe(expected);
+    });
 
-        const actual = helloWorld.helloWorld()
-
-        expect(expected).toEqual(actual)
-    })
-
-})
+    test("return string type", () => {
+        const result = helloWorld.helloWorld();
+        expect(typeof result).toBe('string');
+    });
+});
